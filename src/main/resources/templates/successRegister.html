@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+    <head th:replace="layout :: site-head(~{::title}, ~{::link})">
+        <title th:text="#{title.successRegister}">Successful registration</title>
+        <meta charset="utf-8" />
+    </head>
+    <body>
+        <div class="container">
+            <div class="row">
+                <div th:replace="layout :: site-header" />
+
+                <div class="col-xs-12 col-sm-12 col-md-12">
+                    <div class="form-wrap col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
+                        <div class="rs-success rs-notif mBottom col-md-12">
+                            <i class="fa fa-smile-o" aria-hidden="true"></i>
+                            <ul class="col-xs-12 col-sm-12 col-md-12">
+                                <li th:text="#{message.regSucc}">
+                                    You registered successfully. We will send you
+                                    a confirmation message to your email account.
+                                </li>
+                            </ul>
+                        </div>
+                        <a th:href="@{/login}"
+                           class="link centerText col-xs-12 col-sm-12 col-md-12">
+                            Go to main page
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <footer th:replace="layout :: site-footer" />
+    </body>
+</html>

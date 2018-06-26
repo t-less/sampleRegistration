@@ -1,0 +1,84 @@
+/* 
+    Created on : Apr 6, 2018, 7:36:58 PM
+    Author     : t-less
+*/
+.width100 {
+    width: 100%;
+}
+.width100px {
+    width: 100px;
+}
+.height100 {
+    height: 100%;
+}
+.height200 {
+    height: 200px;
+}
+.height50px {
+    height: 50px;
+}
+.width50px {
+    width: 50px;
+}
+.font17 {
+    font-size: 17px;
+}
+.padding0 {
+    padding: 0;
+}
+.p10 {
+    padding: 10px;
+}
+.pTop {
+    padding-top: 10px;
+}
+.pBottom {
+    padding-bottom: 10px;
+}
+.pLeft {
+    padding-left: 10px;
+}
+.pRight {
+    padding-right: 10px;
+}
+.pLeft0 {
+    padding-left: 0 !important;
+}
+.mTop {
+    margin-top: 10px;
+}
+.mBottom {
+    margin-bottom: 10px;
+}
+.mBottom30 {
+    margin-bottom: 30px;
+}
+.mLeft {
+    margin-left: 10px;
+}
+.mRight {
+    margin-right: 10px;
+}
+.mTop0 {
+    margin-top: 0;
+}
+.mBottom0 {
+    margin-bottom: 0;
+}
+.fixed {
+    position: fixed;
+}
+.centerText {
+    text-align: center;
+}
+.upperText {
+    text-transform: uppercase;
+}
+.letterSpace2 {
+    letter-spacing: 2px;
+}
+.floatLeft {
+    float: left;
+}
+
+

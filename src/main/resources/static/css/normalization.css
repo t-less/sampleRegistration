@@ -1,0 +1,93 @@
+/* 
+    Created on : Jun 8, 2018, 1:58:48 PM
+    Author     : t-less
+*/
+.container {
+    width:100%;
+    min-height: 100%;
+    padding-right: 0;
+    padding-left: 0;
+    margin-right: auto;
+    margin-left: auto;
+    margin: 0;
+}
+.col-xs-1, .col-sm-1, .col-md-1, .col-sm-1, 
+.col-xs-2, .col-sm-2, .col-md-2, .col-sm-2, 
+.col-xs-3, .col-sm-3, .col-md-3, .col-sm-3, 
+.col-xs-4, .col-sm-4, .col-md-4, .col-sm-4, 
+.col-xs-5, .col-sm-5, .col-md-5, .col-sm-5, 
+.col-xs-6, .col-sm-6, .col-md-6, .col-sm-6, 
+.col-xs-7, .col-sm-7, .col-md-7, .col-sm-7, 
+.col-xs-8, .col-sm-8, .col-md-8, .col-sm-8, 
+.col-xs-9, .col-sm-9, .col-md-9, .col-sm-9, 
+.col-xs-10, .col-sm-10, .col-md-10, .col-sm-10, 
+.col-xs-11, .col-sm-11, .col-md-11, .col-sm-11, 
+.col-xs-12, .col-sm-12, .col-md-12, .col-sm-12 {
+    position: relative;
+    min-height: 1px;
+    padding-right: 0;
+    padding-left: 0; }
+.row {
+    margin: 0;
+}
+button, button:active,button:focus,
+select, select:focus, select:active,
+input, input:focus, input:active,
+textarea, textarea:focus, textarea:active {
+    outline: none;
+}
+a, a:hover, a:active, a:focus, a:checked, a:visited {
+    text-decoration: none;
+    outline: none;
+}
+ul, li {
+    list-style: none;
+    padding-left: 0;
+}
+.table {
+    text-align: center;
+}
+.table-responsive {
+    overflow-x: inherit;
+}
+.table>thead>tr>th {
+    text-align: center;
+    border: none;
+}
+.dropdown-menu.pull-right {
+    right: 0;
+}
+.table>tbody>tr>td, .table>tbody>tr>th, 
+.table>tfoot>tr>td, .table>tfoot>tr>th, 
+.table>thead>tr>td, .table>thead>tr>th {
+    vertical-align: middle;
+    border-top: 1px solid #f1f3f3;
+}
+.table>tbody>tr>.nowrap-column {
+    max-width: 150px;
+    overflow: hidden;
+    text-overflow: ellipsis; 
+}
+.table>tbody>tr>.nowrap-column>.fa {
+    font-size: 18px;
+    color: #b2b6bd; 
+}
+.table-striped>tbody>tr:hover .btn-primary {
+    background-color: #b9bcc1;
+    transition: 0.8s;
+}
+/* Styles for sticky footer */
+html {
+    position: relative;
+    min-height: 100%;
+}
+body {
+    margin-bottom: 50px;
+}
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 50px;
+}
+

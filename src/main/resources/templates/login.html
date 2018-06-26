@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+    <head th:replace="layout :: site-head(~{::title}, ~{::link})">
+        <title th:text="#{title.authorization}">Login</title>
+    </head>
+    <body>
+        <div class="container">
+            <div class="row">
+                <div th:replace="layout :: site-header" />
+
+                <div class="col-xs-12 col-sm-12 col-md-12">
+                    <div class="form-wrap col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
+                        
+                        <!--Info start-->
+                        <div th:if="${param.message != null}"
+                             class="rs-errors rs-notif col-xs-12 col-sm-12 col-md-12">
+                            <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
+                            <ul class="col-xs-12 col-sm-12 col-md-12">
+                                <li th:text="${param.message[0]}">Error info</li>
+                            </ul>
+                        </div>
+                        <div th:if="${param.error != null}"
+                             class="rs-errors rs-notif col-xs-12 col-sm-12 col-md-12">
+                            <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
+                            <ul class="col-xs-12 col-sm-12 col-md-12">
+                                <li th:text="${session[SPRING_SECURITY_LAST_EXCEPTION]}">Error info</li>
+                            </ul>
+                        </div>
+                        <div th:replace="layout :: site-error-messages" />
+                        <!--Info end-->
+                        
+                        <h4 class="col-xs-12 col-sm-12 col-md-12 site-title"
+                            th:text="#{label.pages.websitename}">Website name</h4>
+
+                        <form th:action="@{/perform_login}"
+                              method="post"
+                              name="f"
+                              onsubmit="return validate();"
+                              class="reg_sys centerText col-xs-12 col-sm-12 col-md-12">
+                            <div class="pRight pRight768remove mBottom col-xs-12 col-sm-5 col-md-5">
+                                <input type="text"
+                                       name="username"
+                                       id="username"
+                                       autofocus="true"
+                                       class="col-xs-12 col-sm-12 col-md-12"
+                                       th:placeholder="#{label.user.email}"/>
+                            </div>
+                            <div class="pRight pRight768remove mBottom col-xs-12 col-sm-5 col-md-5" >
+                                <input type="password"
+                                       name="password"
+                                       id="password"
+                                       class="col-xs-12 col-sm-12 col-md-12"
+                                       th:placeholder="#{label.user.password}"/>
+                            </div>
+                            <button class="rs-button col-xs-12 col-sm-2 col-md-2"
+                                    type="submit"
+                                    th:text="#{label.login}">Login</button>
+                        </form>
+
+                        <div class="col-xs-12 col-sm-12 col-md-12">
+                            <a th:href="@{/registration}"
+                               class="link pRight"
+                               th:text="#{label.form.loginSignUp}">Sign up</a>
+                            <a th:href="@{/password/forgotPassword}"
+                               th:text="#{message.forgotPassword}"
+                               class="link">Forgot Password?</a>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+
+        <footer th:replace="layout :: site-footer" />
+
+        <script src="../static/js/error_generator.js"
+                th:src="@{/js/error_generator.js}"
+                type="text/javascript">
+        </script>
+
+        <script th:inline="javascript">
+            /*<![CDATA[*/
+            function validate() {
+                var invalidName = /*[[#{message.username}]]*/ 'Введите имя пользователя';
+                var invalidPass = /*[[#{message.password}]]*/ 'Введите пароль';
+
+                if (document.f.username.value == "" && document.f.password.value == "") {
+                    var errors = [invalidName, invalidPass];
+                    generateErrors(errors);
+                    document.f.username.focus();
+                    return false;
+                }
+                if (document.f.username.value == "") {
+                    var errors = [invalidName];
+                    generateErrors(errors);
+                    document.f.username.focus();
+                    return false;
+                }
+                if (document.f.password.value == "") {
+                    var errors = [invalidPass];
+                    generateErrors(errors);
+                    document.f.password.focus();
+                    return false;
+                }
+
+            }
+
+            /*]]>*/
+        </script>
+    </body>
+</html>
+
