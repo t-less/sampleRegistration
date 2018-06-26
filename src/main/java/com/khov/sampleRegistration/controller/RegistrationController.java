@@ -29,10 +29,6 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
  *
  * @author t-less
  */
-/**
- *
- * @author t-less
- */
 @Controller
 public class RegistrationController {
 
