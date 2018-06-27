@@ -106,18 +106,22 @@ public class RegistrationController {
         VerificationToken newToken = userService.generateNewVerificationToken(existingToken);
 
         User user = userService.getUser(newToken.getToken());
+        sendRegistrationTokenMessage(request, user, newToken.getToken());
+        return new GenericResponse(
+                messages.getMessage("message.resendToken", null, request.getLocale()));
+    }
+
+    private void sendRegistrationTokenMessage(HttpServletRequest request, User user, String token) {
         String appUrl
                 = "http://" + request.getServerName()
                 + ":" + request.getServerPort()
                 + request.getContextPath();
         String confirmationUrl
-                = appUrl + "/regitrationConfirm?token=" + newToken.getToken();
+                = appUrl + "/regitrationConfirm?token=" + token;
         String message = messages.getMessage("message.resendToken", null, request.getLocale());
         String subject = messages.getMessage("message.resendVerificationToken", null, request.getLocale());
         String text = message + " " + confirmationUrl;
         String recipientAddress = user.getEmail();
         emailService.sendText(recipientAddress, subject, text);
-        return new GenericResponse(
-                messages.getMessage("message.resendToken", null, request.getLocale()));
     }
 }

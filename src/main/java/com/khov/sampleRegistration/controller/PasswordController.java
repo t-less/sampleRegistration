@@ -40,9 +40,6 @@ public class PasswordController {
     private EmailService emailService;
 
     @Autowired
-    private HttpServletRequest request;
-
-    @Autowired
     private PasswordResetTokenService passwordResetTokenService;
 
     @RequestMapping(value = "/password/forgotPassword", method = RequestMethod.GET)
@@ -62,7 +59,15 @@ public class PasswordController {
         }
         String token = UUID.randomUUID().toString();
         userService.createPasswordResetTokenForUser(user, token);
+        
+        sendResetTokenMessage(request, user, token);
+        
+        return new GenericResponse(
+                messages.getMessage("message.resetPasswordEmail", null,
+                        request.getLocale()));
+    }
 
+    private void sendResetTokenMessage(HttpServletRequest request, User user, String token) {
         String appUrl
                 = "http://" + request.getServerName()
                 + ":" + request.getServerPort()
@@ -74,10 +79,6 @@ public class PasswordController {
         String text = message + " " + confirmationUrl;
         String recipientAddress = user.getEmail();
         emailService.sendText(recipientAddress, subject, text);
-
-        return new GenericResponse(
-                messages.getMessage("message.resetPasswordEmail", null,
-                        request.getLocale()));
     }
 
     @RequestMapping(value = "/password/changePassword", method = RequestMethod.GET)
@@ -103,4 +104,3 @@ public class PasswordController {
                 messages.getMessage("message.resetPasswordSuc", null, locale));
     }
 }
-
